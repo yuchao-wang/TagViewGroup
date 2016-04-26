@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义标签流：padding可以直接写到background中去-->
+    <declare-styleable name="TagViewGroup">
+        <attr name="singleLine" format="boolean"/>
+        <attr name="tagTextAppearance" format="reference"/>
+        <attr name="tagBackground" format="reference"/>
+        <attr name="tagMarginLeft" format="dimension"/>
+        <attr name="tagMarginTop" format="dimension"/>
+        <attr name="tagMarginRight" format="dimension"/>
+        <attr name="tagMarginBottom" format="dimension"/>
+        <attr name="tagMargin" format="dimension"/>
+    </declare-styleable>
+</resources>
