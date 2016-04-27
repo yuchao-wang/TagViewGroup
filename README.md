@@ -5,7 +5,7 @@
 
 ### Demo
 
-[pic is here](https://github.com/yuchao-wang/TagViewGroup/blob/master/image/screenshot.png)
+![pic is here](https://github.com/yuchao-wang/TagViewGroup/blob/master/image/screenshot.png)
 
 ![demo](http://ww2.sinaimg.cn/mw690/726a6a6fjw1f3benszmhqj20qo1betfp.jpg)
 
