@@ -1,72 +1,104 @@
 package wang.yuchao.android.library.view.demo.tagviewgroup;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import wang.yuchao.android.library.view.tagviewgroup.TagViewGroup;
-
 public class MainActivity extends FragmentActivity {
 
     private static int i = 0;
-    private TagViewGroup tagViewGroup;
+    private ButtonTagViewGroup buttonTagViewGroup;
+    private CheckBoxTagViewGroup checkBoxTagViewGroup;
+    private CheckBoxTagViewGroup checkRadioBoxTagViewGroup;
     private TextView test_tv;
-    private Context context;
 
-    private ArrayList<String> text = new ArrayList<String>();
+    private ArrayList<String> allText = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.tagViewGroup = (TagViewGroup) findViewById(R.id.tags_view_group);
-        this.tagViewGroup = (TagViewGroup) findViewById(R.id.tags_view_group);
         this.test_tv = (TextView) findViewById(R.id.test_tv);
+        this.buttonTagViewGroup = (ButtonTagViewGroup) findViewById(R.id.button_tags_view_group);
+        this.checkBoxTagViewGroup = (CheckBoxTagViewGroup) findViewById(R.id.checkbox_tags_view_group);
+        this.checkRadioBoxTagViewGroup = (CheckBoxTagViewGroup) findViewById(R.id.checkbox_radio_tags_view_group);
 
+        //添加
         findViewById(R.id.btn_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text.add("王玉超" + i * i);
+                allText.add("王玉超" + i * i);
                 i++;
-                tagViewGroup.updateButton(text);
+                buttonTagViewGroup.update(allText);
+                checkBoxTagViewGroup.update(allText);
+                checkRadioBoxTagViewGroup.update(allText);
             }
         });
 
+        //移除
         findViewById(R.id.btn_remove).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i--;
-                text.remove(i);
-                tagViewGroup.updateButton(text);
+                allText.remove(i);
+                buttonTagViewGroup.update(allText);
+                checkBoxTagViewGroup.update(allText);
+                checkRadioBoxTagViewGroup.update(allText);
             }
         });
 
-        findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tagViewGroup.setSingleLine(false);
-                test_tv.setVisibility(View.GONE);
-            }
-        });
-
+        //单行显示
         findViewById(R.id.btn_hide).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tagViewGroup.setSingleLine(true);
+                buttonTagViewGroup.setSingleLine(true);
                 test_tv.setVisibility(View.VISIBLE);
+
+                checkBoxTagViewGroup.setSingleLine(true);
+                checkRadioBoxTagViewGroup.setSingleLine(true);
             }
         });
 
-        tagViewGroup.setOnTagItemClickListener(new TagViewGroup.OnTagItemClickListener() {
+        //全部显示
+        findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTagItemClick(int position) {
-                Toast.makeText(getApplicationContext(), "点击的是第" + position + "个，值为：" + text.get(position), Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                buttonTagViewGroup.setSingleLine(false);
+                test_tv.setVisibility(View.GONE);
+
+                checkBoxTagViewGroup.setSingleLine(false);
+                checkRadioBoxTagViewGroup.setSingleLine(false);
+            }
+        });
+
+        //按钮
+        buttonTagViewGroup.setOnTagClickListener(new ButtonTagViewGroup.OnTagClickListener() {
+            @Override
+            public void onTagClick(int position) {
+                Toast.makeText(getApplicationContext(), "点击：" + position + "个，值为：" + allText.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //复选框
+        checkBoxTagViewGroup.setOnTagCheckedChangeListener(new CheckBoxTagViewGroup.OnTagCheckedChangeListener() {
+            @Override
+            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, String tag) {
+                Toast.makeText(getApplicationContext(), "复选：" + position + "个，值为：" + allText.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //单选框
+        checkRadioBoxTagViewGroup.setRadio(true);
+        checkRadioBoxTagViewGroup.setOnTagCheckedChangeListener(new CheckBoxTagViewGroup.OnTagCheckedChangeListener() {
+            @Override
+            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, String tag) {
+                Toast.makeText(getApplicationContext(), "单选：" + position + "个，值为：" + allText.get(position), Toast.LENGTH_SHORT).show();
             }
         });
     }

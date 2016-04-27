@@ -5,7 +5,7 @@ android {
     buildToolsVersion '21.1.2'
     defaultConfig {
         applicationId "wang.yuchao.android.library.view.demo.tagviewgroup"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
@@ -24,6 +24,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:support-v4:23.3.0'
-    //    compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.0.0'
+    //    compile 'com.android.support:appcompat-v7:23.3.0'
+    //    compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.0.1'
     compile project(':TagViewGroupLibrary')
 }

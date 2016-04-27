@@ -2,41 +2,30 @@ package wang.yuchao.android.library.view.tagviewgroup;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import java.util.ArrayList;
 
 /**
- * ViewGroup动态计算内部的子View位置
+ * <pre>
+ * V -> view
+ * T -> tag
+ * </pre>
  * Created by wangyuchao on 15/8/21.
  */
-public class TagViewGroup extends ViewGroup {
+public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
 
     private static final int DEFAULT_MARGIN = 4;
-    private static final int DEFAULT_TEXT_SIZE = 13;
 
     private boolean singleLine;
 
-    private int tagBackground;
-
-    private int tagTextAppearance;
-
-    /**
-     * 默认4dp
-     */
-    private float tagMarginLeft;
-    private float tagMarginTop;
-    private float tagMarginRight;
-    private float tagMarginBottom;
-
-    private OnTagItemClickListener onTagItemClickListener;
-    private OnTagItemCheckListener onTagItemCheckListener;
+    private float tagMarginLeft = DEFAULT_MARGIN;
+    private float tagMarginTop = DEFAULT_MARGIN;
+    private float tagMarginRight = DEFAULT_MARGIN;
+    private float tagMarginBottom = DEFAULT_MARGIN;
 
     public TagViewGroup(Context context) {
         this(context, null);
@@ -51,13 +40,6 @@ public class TagViewGroup extends ViewGroup {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.TagViewGroup);
         if (array.hasValue(R.styleable.TagViewGroup_singleLine)) {
             setSingleLine(array.getBoolean(R.styleable.TagViewGroup_singleLine, false));
-        }
-
-        if (array.hasValue(R.styleable.TagViewGroup_tagTextAppearance)) {
-            setTagTextAppearance(array.getResourceId(R.styleable.TagViewGroup_tagTextAppearance, R.style.TagTextAppearance));
-        }
-        if (array.hasValue(R.styleable.TagViewGroup_tagBackground)) {
-            setTagBackground(array.getResourceId(R.styleable.TagViewGroup_tagBackground, R.drawable.tag_view_group));
         }
 
         if (array.hasValue(R.styleable.TagViewGroup_tagMarginLeft)) {
@@ -161,23 +143,9 @@ public class TagViewGroup extends ViewGroup {
         }
     }
 
-    /**
-     * 是否单行显示
-     */
     public void setSingleLine(boolean isSingleLine) {
         this.singleLine = isSingleLine;
         this.requestLayout();
-    }
-
-    /**
-     * 设置标签背景
-     */
-    public void setTagBackground(int tagBackground) {
-        this.tagBackground = tagBackground;
-    }
-
-    public void setTagTextAppearance(int tagTextAppearance) {
-        this.tagTextAppearance = tagTextAppearance;
     }
 
     public void setTagMarginLeft(float tagMarginLeft) {
@@ -211,114 +179,20 @@ public class TagViewGroup extends ViewGroup {
         return new MarginLayoutParams(p);
     }
 
-    /**
-     * 更新UI[Button]
-     * <pre>
-     *     由于需要使用标签名称，因此没有使用泛型，但是把点击的position返回了
-     * </pre>
-     */
-    public void updateButton(ArrayList<String> tags) {
-        if (tags == null) {
-            return;
-        }
+    public abstract V getTagView(int position, T tag);
 
+    public void update(ArrayList<T> tags) {
         this.removeAllViews();
         for (int i = 0; i < tags.size(); i++) {
             final int position = i;
-            String name = tags.get(i);
-            if (!TextUtils.isEmpty(name)) {
-
-                Button button = new Button(getContext());
-                button.setText(name);
-                button.setTextAppearance(getContext(), tagTextAppearance);
-                button.setBackgroundResource(tagBackground);
+            T tag = tags.get(i);
+            if (tag != null) {
+                V view = getTagView(position, tag);
                 MarginLayoutParams marginLayoutParams = new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 marginLayoutParams.setMargins((int) tagMarginLeft, (int) tagMarginTop, (int) tagMarginRight, (int) tagMarginBottom);
-                button.setLayoutParams(marginLayoutParams);
-                button.setOnClickListener(new TagOnClickListener(position));
-                this.addView(button);
-
+                view.setLayoutParams(marginLayoutParams);
+                this.addView(view);
             }
         }
     }
-
-    /**
-     * 更新UI[CheckBox]
-     * <pre>
-     *     由于需要使用标签名称，因此没有使用泛型，但是把点击的position返回了
-     * </pre>
-     */
-    public void updateCheckBox(ArrayList<String> tags) {
-        if (tags == null) {
-            return;
-        }
-
-        this.removeAllViews();
-        for (int i = 0; i < tags.size(); i++) {
-            final int position = i;
-            String name = tags.get(i);
-            if (!TextUtils.isEmpty(name)) {
-                CheckBox checkBox = new CheckBox(getContext());
-                checkBox.setText(name);
-                checkBox.setTextAppearance(getContext(), tagTextAppearance);
-                checkBox.setButtonDrawable(getResources().getDrawable(android.R.color.transparent));
-                checkBox.setBackgroundResource(tagBackground);
-
-                MarginLayoutParams marginLayoutParams = new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                marginLayoutParams.setMargins((int) tagMarginLeft, (int) tagMarginTop, (int) tagMarginRight, (int) tagMarginBottom);
-                checkBox.setLayoutParams(marginLayoutParams);
-                checkBox.setOnCheckedChangeListener(new TagOnCheckListener(position));
-                this.addView(checkBox);
-            }
-        }
-    }
-
-    public void setOnTagItemClickListener(OnTagItemClickListener onTagItemClickListener) {
-        this.onTagItemClickListener = onTagItemClickListener;
-    }
-
-    public void setOnTagItemCheckListener(OnTagItemCheckListener onTagItemCheckListener) {
-        this.onTagItemCheckListener = onTagItemCheckListener;
-    }
-
-    public interface OnTagItemClickListener {
-        void onTagItemClick(int position);
-    }
-
-    public interface OnTagItemCheckListener {
-        void onTagItemCheck(int position, CompoundButton buttonView, boolean isChecked);
-    }
-
-    private class TagOnClickListener implements OnClickListener {
-
-        private int position;
-
-        public TagOnClickListener(int position) {
-            this.position = position;
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (onTagItemClickListener != null) {
-                onTagItemClickListener.onTagItemClick(position);
-            }
-        }
-    }
-
-    private class TagOnCheckListener implements CompoundButton.OnCheckedChangeListener {
-
-        private int position;
-
-        public TagOnCheckListener(int position) {
-            this.position = position;
-        }
-
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (onTagItemCheckListener != null) {
-                onTagItemCheckListener.onTagItemCheck(position,buttonView, isChecked);
-            }
-        }
-    }
-
 }

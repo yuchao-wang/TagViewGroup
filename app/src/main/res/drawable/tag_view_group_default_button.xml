@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 文字颜色和背景都写在这个文件中 item中的color是文字颜色，里面的是背景-->
+    <item android:color="@color/white" android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <padding
+                android:bottom="@dimen/margin_small_6"
+                android:left="@dimen/margin_normal"
+                android:right="@dimen/margin_normal"
+                android:top="@dimen/margin_small_6"/>
+            <solid android:color="@color/green"/>
+            <corners android:radius="@dimen/corner_radius"/>
+            <stroke android:width="@dimen/line" android:color="@color/green"/>
+        </shape>
+    </item>
+    <item android:color="@color/green">
+        <shape android:shape="rectangle">
+            <padding
+                android:bottom="@dimen/margin_small_6"
+                android:left="@dimen/margin_normal"
+                android:right="@dimen/margin_normal"
+                android:top="@dimen/margin_small_6"/>
+            <solid android:color="@color/white"/>
+            <corners android:radius="@dimen/corner_radius"/>
+            <stroke android:width="@dimen/line" android:color="@color/green"/>
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--=================================================================================================-->
+    <!--=============================================基本色系=============================================-->
+    <!--=================================================================================================-->
+    <color name="transparent">#00000000</color>
+
+    <color name="black">#000000</color>
+    <color name="black_alpha_25">#3F000000</color>
+    <color name="black_alpha_50">#7F000000</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="grey">#808080</color>
+    <color name="grey_light">#808080</color>
+    <color name="grey_dark">#808080</color>
+
+    <color name="red">#FF0000</color>
+    <color name="red_light">#FF0000</color>
+    <color name="red_dark">#FF0000</color>
+
+    <color name="orange">#FFA500</color>
+    <color name="orange_light">#FFA500</color>
+    <color name="orange_dark">#FFA500</color>
+
+    <color name="yellow">#FFFF00</color>
+    <color name="yellow_light">#FFFF00</color>
+    <color name="yellow_dark">#FFFF00</color>
+
+    <color name="green">#33a39d</color>
+    <color name="green_light">#33a39d</color>
+    <color name="green_dark">#33a39d</color>
+
+    <color name="blue">#0000FF</color>
+    <color name="blue_light">#0000FF</color>
+    <color name="blue_dark">#0000FF</color>
+
+    <color name="indigo">#4B0082</color>
+    <color name="indigo_light">#4B0082</color>
+    <color name="indigo_dark">#4B0082</color>
+
+    <color name="purple">#800080</color>
+    <color name="purple_light">#800080</color>
+    <color name="purple_dark">#800080</color>
+
+    <color name="brown">#A52A2A</color>
+    <color name="brown_light">#A52A2A</color>
+    <color name="brown_dark">#A52A2A</color>
+
+    <!--=================================================================================================-->
+    <!--=============================================通用色系=============================================-->
+    <!--=================================================================================================-->
+    <color name="app_background">#F5F5F5</color>
+    <color name="line">#D3D3D3</color>
+
+
+    <!--=================================================================================================-->
+    <!--=============================================字体色系=============================================-->
+    <!--=================================================================================================-->
+
+    <color name="text_white">@color/white</color>
+    <color name="text_black">@color/black</color>
+
+    <color name="text_grey">#808080</color>
+    <color name="text_grey_light">#808080</color>
+    <color name="text_grey_dark">#808080</color>
+
+    <color name="text_red">#FF0000</color>
+    <color name="text_orange">#FFA500</color>
+    <color name="text_yellow">#FFFF00</color>
+    <color name="text_green">@color/green</color>
+    <color name="text_blue">#0000FF</color>
+    <color name="text_indigo">#4B0082</color>
+    <color name="text_purple">#800080</color>
+    <color name="text_brown">#A52A2A</color>
+
+</resources>
