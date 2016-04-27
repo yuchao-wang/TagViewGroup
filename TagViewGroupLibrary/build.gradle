@@ -39,7 +39,7 @@ ext {
     siteUrl = 'https://github.com/yuchao-wang/TagViewGroup'
     gitUrl = 'https://github.com/yuchao-wang/TagViewGroup.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.1.0'
 
     developerId = 'wangyuchao'
     developerName = 'yuchao-wang'

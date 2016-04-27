@@ -9,7 +9,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import wang.yuchao.android.library.view.tagviewgroup.TagViewGroup;
+import wang.yuchao.android.library.view.tagviewgroup.OnTagCheckedChangeListener;
+import wang.yuchao.android.library.view.tagviewgroup.OnTagClickListener;
 
 public class MainActivity extends FragmentActivity {
 
@@ -80,7 +81,7 @@ public class MainActivity extends FragmentActivity {
         });
 
         //点击
-        buttonTagViewGroup.setOnTagClickListener(new TagViewGroup.OnTagClickListener() {
+        buttonTagViewGroup.setOnTagClickListener(new OnTagClickListener() {
             @Override
             public void onTagClick(int position, Object tag) {
                 String tagString = (String) tag;
@@ -89,7 +90,7 @@ public class MainActivity extends FragmentActivity {
         });
 
         //复选框
-        checkBoxTagViewGroup.setOnTagCheckedChangeListener(new TagViewGroup.OnTagCheckedChangeListener() {
+        checkBoxTagViewGroup.setOnTagCheckedChangeListener(new OnTagCheckedChangeListener() {
             @Override
             public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
                 String tagString = (String) tag;
@@ -97,7 +98,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
         //单选框
-        checkRadioBoxTagViewGroup.setOnTagCheckedChangeListener(new TagViewGroup.OnTagCheckedChangeListener() {
+        checkRadioBoxTagViewGroup.setOnTagCheckedChangeListener(new OnTagCheckedChangeListener() {
             @Override
             public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
                 String tagString = (String) tag;

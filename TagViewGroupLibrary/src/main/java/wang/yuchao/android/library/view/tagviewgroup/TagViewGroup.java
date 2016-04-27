@@ -12,10 +12,6 @@ import android.widget.CompoundButton;
 import java.util.ArrayList;
 
 /**
- * <pre>
- * V -> view
- * T -> tag
- * </pre>
  * Created by wangyuchao on 15/8/21.
  */
 public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
@@ -259,13 +255,5 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
                 checkBox.setChecked(false);
             }
         }
-    }
-
-    public interface OnTagClickListener {
-        void onTagClick(int position, Object tag);
-    }
-
-    public interface OnTagCheckedChangeListener {
-        void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag);
     }
 }

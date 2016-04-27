@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/margin_normal"
-            android:text="ButtonTagViewGroupDemo"
+            android:text="ButtonTagViewGroupDemo 点击"
             android:textColor="@android:color/holo_red_dark"/>
 
         <TextView
@@ -74,6 +74,11 @@
             android:layout_height="wrap_content"
             TagViewGroup:singleLine="true"
             TagViewGroup:tagMargin="@dimen/margin_little"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:layout_width="wrap_content"

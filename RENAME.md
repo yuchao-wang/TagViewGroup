@@ -9,6 +9,7 @@
 
 ### How To Use 
 
+### Proguard
 
 ### Problem
 1. java.lang.IllegalStateException: The specified child already has a parent. You must call removeView() on the child's parent first.
