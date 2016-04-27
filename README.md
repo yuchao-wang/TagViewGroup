@@ -1,4 +1,4 @@
-## TagViewGroup For Android
+## TagViewGroup For Android（标签布局）
 
 - TagViewGroup is a ViewGroup layout for tags;
 - Min sdk on support is 15(Android 4.0.3)
