@@ -84,7 +84,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onTagClick(int position, Object tag) {
                 String tagString = (String) tag;
-                Toast.makeText(getApplicationContext(), "点击：" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "点击：第" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -93,7 +93,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
                 String tagString = (String) tag;
-                Toast.makeText(getApplicationContext(), "复选：" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "复选：第" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
             }
         });
         //单选框
@@ -101,7 +101,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
                 String tagString = (String) tag;
-                Toast.makeText(getApplicationContext(), "单选：" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "单选：第" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
             }
         });
     }

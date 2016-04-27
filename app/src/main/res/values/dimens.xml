@@ -23,7 +23,7 @@
     <dimen name="margin_tiny">2dp</dimen>
 
     <!--细线-->
-    <dimen name="line">1px</dimen>
+    <dimen name="line">2px</dimen>
 
     <!--圆角半径-->
     <dimen name="corner_radius">8px</dimen>
