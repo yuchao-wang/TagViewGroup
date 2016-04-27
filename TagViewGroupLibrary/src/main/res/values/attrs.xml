@@ -3,6 +3,7 @@
     <!--自定义标签流：padding可以直接写到background中去-->
     <declare-styleable name="TagViewGroup">
         <attr name="singleLine" format="boolean"/>
+        <attr name="isRadio" format="boolean"/>
 
         <attr name="tagMarginLeft" format="dimension"/>
         <attr name="tagMarginTop" format="dimension"/>

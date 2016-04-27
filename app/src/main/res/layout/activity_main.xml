@@ -92,6 +92,7 @@
             android:id="@+id/checkbox_radio_tags_view_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            TagViewGroup:isRadio="true"
             TagViewGroup:singleLine="true"
             TagViewGroup:tagMargin="@dimen/margin_little"/>
 

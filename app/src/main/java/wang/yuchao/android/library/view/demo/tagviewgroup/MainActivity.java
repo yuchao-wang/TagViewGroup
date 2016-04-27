@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import wang.yuchao.android.library.view.tagviewgroup.TagViewGroup;
+
 public class MainActivity extends FragmentActivity {
 
     private static int i = 0;
@@ -77,28 +79,29 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        //按钮
-        buttonTagViewGroup.setOnTagClickListener(new ButtonTagViewGroup.OnTagClickListener() {
+        //点击
+        buttonTagViewGroup.setOnTagClickListener(new TagViewGroup.OnTagClickListener() {
             @Override
-            public void onTagClick(int position) {
-                Toast.makeText(getApplicationContext(), "点击：" + position + "个，值为：" + allText.get(position), Toast.LENGTH_SHORT).show();
+            public void onTagClick(int position, Object tag) {
+                String tagString = (String) tag;
+                Toast.makeText(getApplicationContext(), "点击：" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
             }
         });
 
         //复选框
-        checkBoxTagViewGroup.setOnTagCheckedChangeListener(new CheckBoxTagViewGroup.OnTagCheckedChangeListener() {
+        checkBoxTagViewGroup.setOnTagCheckedChangeListener(new TagViewGroup.OnTagCheckedChangeListener() {
             @Override
-            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, String tag) {
-                Toast.makeText(getApplicationContext(), "复选：" + position + "个，值为：" + allText.get(position), Toast.LENGTH_SHORT).show();
+            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
+                String tagString = (String) tag;
+                Toast.makeText(getApplicationContext(), "复选：" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
             }
         });
-
         //单选框
-        checkRadioBoxTagViewGroup.setRadio(true);
-        checkRadioBoxTagViewGroup.setOnTagCheckedChangeListener(new CheckBoxTagViewGroup.OnTagCheckedChangeListener() {
+        checkRadioBoxTagViewGroup.setOnTagCheckedChangeListener(new TagViewGroup.OnTagCheckedChangeListener() {
             @Override
-            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, String tag) {
-                Toast.makeText(getApplicationContext(), "单选：" + position + "个，值为：" + allText.get(position), Toast.LENGTH_SHORT).show();
+            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
+                String tagString = (String) tag;
+                Toast.makeText(getApplicationContext(), "单选：" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
             }
         });
     }

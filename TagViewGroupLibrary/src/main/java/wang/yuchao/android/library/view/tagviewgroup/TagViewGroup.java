@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,9 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
     private float tagMarginTop = DEFAULT_MARGIN;
     private float tagMarginRight = DEFAULT_MARGIN;
     private float tagMarginBottom = DEFAULT_MARGIN;
+    private OnTagClickListener onTagClickListener;
+    private OnTagCheckedChangeListener onTagCheckedChangeListener;
+    private boolean isRadio;
 
     public TagViewGroup(Context context) {
         this(context, null);
@@ -40,6 +45,9 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.TagViewGroup);
         if (array.hasValue(R.styleable.TagViewGroup_singleLine)) {
             setSingleLine(array.getBoolean(R.styleable.TagViewGroup_singleLine, false));
+        }
+        if (array.hasValue(R.styleable.TagViewGroup_isRadio)) {
+            setRadio(array.getBoolean(R.styleable.TagViewGroup_isRadio, false));
         }
 
         if (array.hasValue(R.styleable.TagViewGroup_tagMarginLeft)) {
@@ -179,20 +187,81 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
         return new MarginLayoutParams(p);
     }
 
-    public abstract V getTagView(int position, T tag);
+    public abstract V getTagItemView(int position, T tag);
 
     public void update(ArrayList<T> tags) {
         this.removeAllViews();
         for (int i = 0; i < tags.size(); i++) {
-            final int position = i;
             T tag = tags.get(i);
             if (tag != null) {
-                V view = getTagView(position, tag);
+                V view = getTagItemView(i, tag);
                 MarginLayoutParams marginLayoutParams = new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 marginLayoutParams.setMargins((int) tagMarginLeft, (int) tagMarginTop, (int) tagMarginRight, (int) tagMarginBottom);
                 view.setLayoutParams(marginLayoutParams);
                 this.addView(view);
+                setListener(view, i, tag);
             }
         }
+    }
+
+    private void setListener(V view, final int position, final T tag) {
+        if (view instanceof CheckBox) {
+            //如果是CheckBox
+            CheckBox checkBox = (CheckBox) view;
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    if (onTagCheckedChangeListener != null) {
+                        if (isRadio && checked) {
+                            radio(position);
+                        }
+                        onTagCheckedChangeListener.onTagCheckedChanged(compoundButton, checked, position, tag);
+                    }
+                }
+            });
+        } else {
+            //如果是Button
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (onTagClickListener != null) {
+                        onTagClickListener.onTagClick(position, tag);
+                    }
+                }
+            });
+        }
+    }
+
+    public void setOnTagClickListener(OnTagClickListener onTagClickListener) {
+        this.onTagClickListener = onTagClickListener;
+    }
+
+    public void setRadio(boolean radio) {
+        isRadio = radio;
+    }
+
+    public void setOnTagCheckedChangeListener(OnTagCheckedChangeListener onTagCheckedChangeListener) {
+        this.onTagCheckedChangeListener = onTagCheckedChangeListener;
+    }
+
+    /**
+     * 单选某个position
+     */
+    private void radio(int position) {
+        for (int i = 0; i < getChildCount(); i++) {
+            CheckBox checkBox = (CheckBox) getChildAt(i);
+            //把之前选中的置为false
+            if (i != position) {
+                checkBox.setChecked(false);
+            }
+        }
+    }
+
+    public interface OnTagClickListener {
+        void onTagClick(int position, Object tag);
+    }
+
+    public interface OnTagCheckedChangeListener {
+        void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag);
     }
 }
