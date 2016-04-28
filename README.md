@@ -7,15 +7,21 @@
 
 ![pic is here](https://github.com/yuchao-wang/TagViewGroup/blob/master/image/screenshot.png)
 
+### Update
+
+- 1.1.1 优化1.1.0的margin和marginTop,marginBottom,marginLeft,marginRight同时使用的策略
+- 1.1.0 单选、复选、点击、三种类型的标签完成
+- 1.0.0 基本功能完善版本
+
+### Dependence 
+
+```
+compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.1'
+```
+
 ### How To Use
 
-add this to model dependence
-
-```
-compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.0'
-```
-
-then as follows
+**java file** 
 
 ```
 public class ButtonTagViewGroup extends TagViewGroup<Button, String> {
@@ -37,6 +43,31 @@ public class ButtonTagViewGroup extends TagViewGroup<Button, String> {
     }
 }
 ```
+
+**xml file**
+
+```
+<wang.yuchao.android.library.view.demo.tagviewgroup.ButtonTagViewGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            TagViewGroup:isRadio="true"
+            TagViewGroup:singleLine="true"
+            TagViewGroup:tagMargin="@dimen/margin_little"/>
+```
+
+**declarations**
+
+|param|statement|
+|:---|:---|
+|isRadio|单选-复选|
+|singleLine|单行显示-全部显示|
+|tagMargin|tag之间的边距|
+|tagMarginLeft|tag左边距|
+|tagMarginRight|tag右边距|
+|tagMarginTop|tag上边距|
+|tagMarginBottom|tag底边距|
+
+
 
 ### Proguard
 

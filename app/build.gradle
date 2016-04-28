@@ -24,6 +24,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:support-v4:23.3.0'
-    compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.0'
+    compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.1'
 //    compile project(':TagViewGroupLibrary')
 }

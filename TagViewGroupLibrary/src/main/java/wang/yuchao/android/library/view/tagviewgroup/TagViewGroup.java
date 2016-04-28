@@ -16,14 +16,15 @@ import java.util.ArrayList;
  */
 public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
 
-    private static final int DEFAULT_MARGIN = 4;
+    private static final int DEFAULT_MARGIN = 0;
 
     private boolean singleLine;
 
-    private float tagMarginLeft = DEFAULT_MARGIN;
-    private float tagMarginTop = DEFAULT_MARGIN;
-    private float tagMarginRight = DEFAULT_MARGIN;
-    private float tagMarginBottom = DEFAULT_MARGIN;
+    private float tagMarginLeft;
+    private float tagMarginTop;
+    private float tagMarginRight;
+    private float tagMarginBottom;
+
     private OnTagClickListener onTagClickListener;
     private OnTagCheckedChangeListener onTagCheckedChangeListener;
     private boolean isRadio;
@@ -46,18 +47,7 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
             setRadio(array.getBoolean(R.styleable.TagViewGroup_isRadio, false));
         }
 
-        if (array.hasValue(R.styleable.TagViewGroup_tagMarginLeft)) {
-            setTagMarginLeft(array.getDimension(R.styleable.TagViewGroup_tagMarginLeft, DEFAULT_MARGIN));
-        }
-        if (array.hasValue(R.styleable.TagViewGroup_tagMarginTop)) {
-            setTagMarginTop(array.getDimension(R.styleable.TagViewGroup_tagMarginTop, DEFAULT_MARGIN));
-        }
-        if (array.hasValue(R.styleable.TagViewGroup_tagMarginRight)) {
-            setTagMarginRight(array.getDimension(R.styleable.TagViewGroup_tagMarginRight, DEFAULT_MARGIN));
-        }
-        if (array.hasValue(R.styleable.TagViewGroup_tagMarginBottom)) {
-            setTagMarginBottom(array.getDimension(R.styleable.TagViewGroup_tagMarginBottom, DEFAULT_MARGIN));
-        }
+        //边距默认
         if (array.hasValue(R.styleable.TagViewGroup_tagMargin)) {
             float margin = array.getDimension(R.styleable.TagViewGroup_tagMargin, DEFAULT_MARGIN);
             setTagMarginLeft(margin);
@@ -65,6 +55,20 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
             setTagMarginRight(margin);
             setTagMarginBottom(margin);
         }
+
+        if (array.hasValue(R.styleable.TagViewGroup_tagMarginLeft)) {
+            setTagMarginLeft(array.getDimension(R.styleable.TagViewGroup_tagMarginLeft, tagMarginLeft));
+        }
+        if (array.hasValue(R.styleable.TagViewGroup_tagMarginTop)) {
+            setTagMarginTop(array.getDimension(R.styleable.TagViewGroup_tagMarginTop, tagMarginTop));
+        }
+        if (array.hasValue(R.styleable.TagViewGroup_tagMarginRight)) {
+            setTagMarginRight(array.getDimension(R.styleable.TagViewGroup_tagMarginRight, tagMarginRight));
+        }
+        if (array.hasValue(R.styleable.TagViewGroup_tagMarginBottom)) {
+            setTagMarginBottom(array.getDimension(R.styleable.TagViewGroup_tagMarginBottom, tagMarginBottom));
+        }
+
         array.recycle();
     }
 
