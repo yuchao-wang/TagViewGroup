@@ -15,20 +15,6 @@ add this to model dependence
 compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.0'
 ```
 
-if can't find it or gradle failed ,you need add something to project gradle file like this
-
-```
-allprojects {
-    repositories {
-        maven {
-            url 'https://dl.bintray.com/yuchao-wang/maven'
-        }
-        jcenter()
-    }
-}
-```
-
-
 ### Proguard
 
 ```
