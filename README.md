@@ -5,6 +5,8 @@
 
 ### Demo
 
+[Download](https://codeload.github.com/yuchao-wang/TagViewGroup/zip/master)
+
 ![pic is here](https://github.com/yuchao-wang/TagViewGroup/blob/master/image/screenshot.png)
 
 ### Update
