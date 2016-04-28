@@ -15,6 +15,29 @@ add this to model dependence
 compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.0'
 ```
 
+then as follows
+
+```
+public class ButtonTagViewGroup extends TagViewGroup<Button, String> {
+    public ButtonTagViewGroup(Context context) {
+        super(context);
+    }
+    
+    public ButtonTagViewGroup(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    public Button getTagItemView(int position, String tag) {
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.tag_view_group_default_button, null);
+        //tag布局不能包含在别的布局中，否则会报错 The specified child already has a parent. You must call removeView() on the child's parent first.
+        Button button = (Button) view.findViewById(R.id.tag);
+        button.setText(tag);
+        return button;
+    }
+}
+```
+
 ### Proguard
 
 ```
