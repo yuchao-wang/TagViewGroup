@@ -1,4 +1,4 @@
-## TagViewGroup For Android（标签布局）
+## TagViewGroup For Android
 
 - TagViewGroup is a ViewGroup layout for tags;
 - Min sdk on support is 15(Android 4.0.3)
@@ -11,9 +11,19 @@
 
 ### Update
 
-- 1.1.1 优化1.1.0的margin和marginTop,marginBottom,marginLeft,marginRight同时使用的策略
-- 1.1.0 单选、复选、点击、三种类型的标签完成
-- 1.0.0 基本功能完善版本
+#### 1.1.1 
+
+- optimize the strategy of 1.1.0 for margin 
+
+#### 1.1.0
+
+- Support Single Click
+- Support CheckBox 
+- Support Radio
+
+#### 1.0.0
+
+- Basic Function
 
 ### Dependence 
 
@@ -61,15 +71,13 @@ public class ButtonTagViewGroup extends TagViewGroup<Button, String> {
 
 |param|statement|
 |:---|:---|
-|isRadio|单选-复选|
-|singleLine|单行显示-全部显示|
-|tagMargin|tag之间的边距|
-|tagMarginLeft|tag左边距|
-|tagMarginRight|tag右边距|
-|tagMarginTop|tag上边距|
-|tagMarginBottom|tag底边距|
-
-
+|isRadio|radio or checkbox|
+|singleLine|show in singleLine|
+|tagMargin|tag margin|
+|tagMarginLeft|tag left margin|
+|tagMarginRight|tag right margin|
+|tagMarginTop|tag top margin|
+|tagMarginBottom|tag bottom margin|
 
 ### Proguard
 
