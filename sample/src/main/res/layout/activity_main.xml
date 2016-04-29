@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:TagViewGroup="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        xmlns:TagViewGroup="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/margin_normal"
+            android:text="ButtonTagViewGroupDemo 点击"
+            android:textColor="@android:color/holo_red_dark"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/test_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/margin_normal"
+                android:text="占位"/>
+
+            <wang.yuchao.android.library.view.sample.tagviewgroup.ButtonTagViewGroup
+                android:id="@+id/button_tags_view_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                TagViewGroup:singleLine="true"
+                TagViewGroup:tagMargin="@dimen/margin_little"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/margin_normal"
+            android:text="CheckBoxTagViewGroupDemo 复选"
+            android:textColor="@android:color/holo_red_dark"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <wang.yuchao.android.library.view.sample.tagviewgroup.CheckBoxTagViewGroup
+            android:id="@+id/checkbox_tags_view_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            TagViewGroup:singleLine="true"
+            TagViewGroup:tagMargin="@dimen/margin_little"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/margin_normal"
+            android:text="CheckBoxTagViewGroupDemo 单选"
+            android:textColor="@android:color/holo_red_dark"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"/>
+
+        <wang.yuchao.android.library.view.sample.tagviewgroup.CheckBoxTagViewGroup
+            android:id="@+id/checkbox_radio_tags_view_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            TagViewGroup:isRadio="true"
+            TagViewGroup:singleLine="true"
+            TagViewGroup:tagMargin="@dimen/margin_little"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="添加"/>
+
+            <Button
+                android:id="@+id/btn_remove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="删除"/>
+
+            <Button
+                android:id="@+id/btn_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示全部"/>
+
+            <Button
+                android:id="@+id/btn_hide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="显示单行"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

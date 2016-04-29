@@ -1,1 +1,1 @@
-include ':app', ':TagViewGroupLibrary'
+include ':sample', ':TagViewGroupLibrary'
