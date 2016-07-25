@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Sample/sample.iml" filepath="$PROJECT_DIR$/Sample/sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/TagViewGroup.iml" filepath="$PROJECT_DIR$/TagViewGroup.iml" />
       <module fileurl="file://$PROJECT_DIR$/TagViewGroupLibrary/TagViewGroupLibrary.iml" filepath="$PROJECT_DIR$/TagViewGroupLibrary/TagViewGroupLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/app.iml" filepath="$PROJECT_DIR$/sample/app.iml" />

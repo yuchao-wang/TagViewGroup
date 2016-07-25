@@ -1,4 +1,4 @@
-package wang.yuchao.android.library.view.sample.tagviewgroup;
+package wang.yuchao.android.library.view.tagviewgroup.sample;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
+import wang.yuchao.android.library.view.sample.tagviewgroup.R;
 import wang.yuchao.android.library.view.tagviewgroup.TagViewGroup;
 
 

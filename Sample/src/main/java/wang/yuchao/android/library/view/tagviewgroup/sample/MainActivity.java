@@ -1,4 +1,4 @@
-package wang.yuchao.android.library.view.sample.tagviewgroup;
+package wang.yuchao.android.library.view.tagviewgroup.sample;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import wang.yuchao.android.library.view.sample.tagviewgroup.R;
 import wang.yuchao.android.library.view.tagviewgroup.OnTagCheckedChangeListener;
 import wang.yuchao.android.library.view.tagviewgroup.OnTagClickListener;
 

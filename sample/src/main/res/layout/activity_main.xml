@@ -40,7 +40,7 @@
                 android:layout_margin="@dimen/margin_normal"
                 android:text="占位"/>
 
-            <wang.yuchao.android.library.view.sample.tagviewgroup.ButtonTagViewGroup
+            <wang.yuchao.android.library.view.tagviewgroup.sample.ButtonTagViewGroup
                 android:id="@+id/button_tags_view_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_height="1px"
             android:background="@android:color/darker_gray"/>
 
-        <wang.yuchao.android.library.view.sample.tagviewgroup.CheckBoxTagViewGroup
+        <wang.yuchao.android.library.view.tagviewgroup.sample.CheckBoxTagViewGroup
             android:id="@+id/checkbox_tags_view_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             android:layout_height="1px"
             android:background="@android:color/darker_gray"/>
 
-        <wang.yuchao.android.library.view.sample.tagviewgroup.CheckBoxTagViewGroup
+        <wang.yuchao.android.library.view.tagviewgroup.sample.CheckBoxTagViewGroup
             android:id="@+id/checkbox_radio_tags_view_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
