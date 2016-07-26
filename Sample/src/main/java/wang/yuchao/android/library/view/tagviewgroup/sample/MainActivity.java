@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import wang.yuchao.android.library.view.sample.tagviewgroup.R;
 import wang.yuchao.android.library.view.tagviewgroup.OnTagCheckedChangeListener;
 import wang.yuchao.android.library.view.tagviewgroup.OnTagClickListener;
 

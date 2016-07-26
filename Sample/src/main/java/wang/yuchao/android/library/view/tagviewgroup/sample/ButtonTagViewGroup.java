@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
-import wang.yuchao.android.library.view.sample.tagviewgroup.R;
 import wang.yuchao.android.library.view.tagviewgroup.TagViewGroup;
 
 
