@@ -11,6 +11,10 @@
 
 ### Update
 
+#### 1.1.3
+
+- fix radio button listener
+
 #### 1.1.1 
 
 - optimize the strategy of 1.1.0 for margin 
