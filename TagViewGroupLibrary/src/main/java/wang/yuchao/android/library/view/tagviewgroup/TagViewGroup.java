@@ -213,13 +213,9 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                     if (onTagCheckedChangeListener != null) {
                         if (isRadio) {
-                            if (checked) {
-                                radio(position);
-                                onTagCheckedChangeListener.onTagCheckedChanged(compoundButton, checked, position, tag);
-                            }
-                        } else {
-                            onTagCheckedChangeListener.onTagCheckedChanged(compoundButton, checked, position, tag);
+                            radio(position);
                         }
+                        onTagCheckedChangeListener.onTagCheckedChanged(compoundButton, checked, position, tag);
                     }
                 }
             });
