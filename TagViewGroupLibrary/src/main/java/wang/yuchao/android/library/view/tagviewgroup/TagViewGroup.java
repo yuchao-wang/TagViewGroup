@@ -207,13 +207,15 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
     private void setListener(V view, final int position, final T tag) {
         if (view instanceof CheckBox) {
             //如果是CheckBox
-            CheckBox checkBox = (CheckBox) view;
+            final CheckBox checkBox = (CheckBox) view;
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                     if (onTagCheckedChangeListener != null) {
                         if (isRadio) {
-                            radio(position);
+                            if (checked) {
+                                setOtherButtonUnChecked(position);
+                            }
                         }
                         onTagCheckedChangeListener.onTagCheckedChanged(compoundButton, checked, position, tag);
                     }
@@ -245,12 +247,12 @@ public abstract class TagViewGroup<V extends Button, T> extends ViewGroup {
     }
 
     /**
-     * 单选某个position
+     * 单选某个 position
      */
-    private void radio(int position) {
+    private void setOtherButtonUnChecked(int position) {
         for (int i = 0; i < getChildCount(); i++) {
             CheckBox checkBox = (CheckBox) getChildAt(i);
-            //把之前选中的置为false
+            // 把之前选中的置为 false
             if (i != position) {
                 checkBox.setChecked(false);
             }
