@@ -2,10 +2,10 @@ package wang.yuchao.android.library.view.tagviewgroup.sample;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -85,24 +85,24 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onTagClick(int position, Object tag) {
                 String tagString = (String) tag;
-                Toast.makeText(getApplicationContext(), "点击：第" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
+                Log.e("wang", "点击：第" + position + "个，值为：" + tagString);
             }
         });
 
         //复选框
         checkBoxTagViewGroup.setOnTagCheckedChangeListener(new OnTagCheckedChangeListener() {
             @Override
-            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
+            public void onTagCheckedChanged(CompoundButton compoundButton, boolean checked, int position, Object tag) {
                 String tagString = (String) tag;
-                Toast.makeText(getApplicationContext(), "复选：第" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
+                Log.e("wang", "复选：第" + position + "个，值为：" + tagString + " checked:" + checked);
             }
         });
         //单选框
         checkRadioBoxTagViewGroup.setOnTagCheckedChangeListener(new OnTagCheckedChangeListener() {
             @Override
-            public void onTagCheckedChanged(CompoundButton compoundButton, boolean b, int position, Object tag) {
+            public void onTagCheckedChanged(CompoundButton compoundButton, boolean checked, int position, Object tag) {
                 String tagString = (String) tag;
-                Toast.makeText(getApplicationContext(), "单选：第" + position + "个，值为：" + tagString, Toast.LENGTH_SHORT).show();
+                Log.e("wang", "单选：第" + position + "个，值为：" + tagString + " checked:" + checked);
             }
         });
     }

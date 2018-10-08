@@ -28,7 +28,7 @@
 ### Dependence 
 
 ```
-compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.1'
+compile 'wang.yuchao.android.library.view.tagviewgroup:TagViewGroupLibrary:1.1.2'
 ```
 
 ### How To Use
