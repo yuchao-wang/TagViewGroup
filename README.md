@@ -1,3 +1,7 @@
+## Email
+
+yuchao.wang@yuchao.wang
+
 ## TagViewGroup For Android
 
 - TagViewGroup is a ViewGroup layout for tags;
